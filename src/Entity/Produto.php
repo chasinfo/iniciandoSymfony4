@@ -23,12 +23,65 @@ class Produto
     private $name;
     /**
      * @var double
-     * @ORM\Column(type="decimal", scale="2")
+     * @ORM\Column(type="decimal", precision=5, scale=2)
      */
     private $price;
 
-    public function getId(): ?int
+    /**
+     * @return int
+     */
+    public function getId(): int
     {
         return $this->id;
     }
+
+    /**
+     * @param int $id
+     * @return Produto
+     */
+    public function setId(int $id): Produto
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return Produto
+     */
+    public function setName(string $name): Produto
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param float $price
+     * @return Produto
+     */
+    public function setPrice(float $price): Produto
+    {
+        $this->price = $price;
+        return $this;
+    }
+
+
+
+
 }
