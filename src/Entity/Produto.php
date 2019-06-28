@@ -31,6 +31,13 @@ class Produto
     private $price;
 
     /**
+     * @var string
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank
+     */
+    private $description;
+
+    /**
      * @return int
      */
     public function getId()
@@ -83,5 +90,24 @@ class Produto
         $this->price = $price;
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     * @return Produto
+     */
+    public function setDescription(string $description): Produto
+    {
+        $this->description = $description;
+        return $this;
+    }
+
 
 }
