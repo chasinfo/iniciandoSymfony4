@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Produto;
+use App\Form\ProdutoType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ProdutoController extends AbstractController
@@ -17,5 +19,20 @@ class ProdutoController extends AbstractController
         $produtos = $em->getRepository(Produto::class)->findAll();
 
         return $this->render('produto/index.html.twig', ['produtos'=>$produtos]);
+    }
+
+    /**
+     * @Route("/produto/cadastrar", name="cadastrar_produto")
+     */
+    public function create(Request $request)
+    {
+        $produto = new Produto();
+        $form    = $this->createForm(ProdutoType::class, $produto);
+
+        $form->handleRequest($request);
+
+        return $this->render('produto/create.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }
