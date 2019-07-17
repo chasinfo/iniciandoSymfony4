@@ -20,20 +20,19 @@ class Produto
     /**
      * @var string
      * @ORM\Column(type="string", length=100)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="O preenchimento deste campo é obrigatório")
      */
     private $name;
     /**
      * @var double
      * @ORM\Column(type="decimal", precision=5, scale=2)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="O preenchimento deste campo é obrigatório")
      */
     private $price;
 
     /**
      * @var string
-     * @ORM\Column(type="text")
-     * @Assert\NotBlank
+     * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
@@ -103,7 +102,7 @@ class Produto
      * @param string $description
      * @return Produto
      */
-    public function setDescription(string $description): Produto
+    public function setDescription(string $description = null): Produto
     {
         $this->description = $description;
         return $this;
