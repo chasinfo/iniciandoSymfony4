@@ -36,7 +36,7 @@
                     <td>{{ produto.name }}</td>
                     <td>{{ produto.price|number_format(2,',','.') }}</td>
                     <td class="text-center">
-                        <a class="btn btn-sm btn-warning" href=""><i class="fas fa-eye"></i></a>
+                        <a class="btn btn-sm btn-warning" href="{{ path('visualizar_produto', {'id': produto.id}) }}"><i class="fas fa-eye"></i></a>
                         <a class="btn btn-sm btn-success" href="{{ path('editar_produto', {'id': produto.id}) }}"><i class="fas fa-edit"></i></a>
                         <a class="btn btn-sm btn-danger" href=""><i class="fas fa-eraser"></i></a>
                     </td>

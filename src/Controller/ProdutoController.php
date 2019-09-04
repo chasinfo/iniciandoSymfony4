@@ -82,4 +82,21 @@ class ProdutoController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * @param Request $request
+     * @param $id
+     *
+     * @Route("produto/visualizar/{id}", name="visualizar_produto")
+     */
+    public function view(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $produto = $em->getRepository(Produto::class)->find($id);
+
+        return $this->render('produto/view.html.twig', [
+            'produto' => $produto
+        ]);
+    }
 }

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Visualização do produto{% endblock %}
+
+{% block body %}
+    <h1>Visualização do Produto <small>{{ produto.name }}</small></h1>
+    <hr>
+    <table class="table table-striped">
+        <tbody>
+        <tr>
+            <th>Código</th>
+            <td>{{ produto.id }}</td>
+        </tr>
+        <tr>
+            <th>Nome</th>
+            <td>{{ produto.name }}</td>
+        </tr>
+        <tr>
+            <th>Preço</th>
+            <td>{{ produto.price }}</td>
+        </tr>
+        <tr>
+            <th>Decrição</th>
+            <td>{{ produto.description }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+{% endblock %}
